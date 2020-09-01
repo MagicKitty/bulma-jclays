@@ -1,0 +1,45 @@
+<div class="modal is-active" #closeModal>
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Télécharger fichier</p>
+        <button class="delete" aria-label="close" (click)="close()"></button>
+      </header>
+      <section class="modal-card-body">
+          
+
+<div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">From</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control is-expanded has-icons-left">
+          <input class="input" type="text" placeholder="Name">
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control is-expanded has-icons-left has-icons-right">
+          <input class="input is-success" type="email" placeholder="Email" value="alex@smith.com">
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+
+</section>
+<footer class="modal-card-foot">
+  <button class="button is-success" (click)="close()">Valider</button>
+  <button class="button" (click)="close()">Annuler</button>
+</footer>
+</div>
+</div>

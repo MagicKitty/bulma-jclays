@@ -1,0 +1,26 @@
+span > svg {
+    margin-right: 5px;
+}
+
+.is-vertical-menu li > a {
+    padding-right: 0;
+}
+
+.is-vertical-menu li > a > div {
+    width: 100%;
+}
+
+.is-icon {
+    position: absolute;
+    right: 0;
+}
+
+$light-gray: rgb(216, 216, 216);
+
+.column:nth-child(1) {
+    border-right: 1px solid $light-gray;
+}
+
+.column:nth-child(3) {
+    border-left: 1px solid $light-gray;
+}

@@ -1,0 +1,177 @@
+<div class="container">
+  <div class="tabs is-boxed" #tab>
+    <ul>
+      <li class="is-active"><a>
+          <span>{{ isValidated ? 'Dictionnaire' : 'Paramètrage dictionnaire' }}</span>
+          <button class="delete is-icon" aria-label="close" (click)="close()"></button>
+        </a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <fieldset>
+      <legend>Gestion dictionnaire</legend>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Identifiant dictionnaire</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded has-icons-right">
+              <input class="input" type="text" placeholder="" [value]="isValidated ? 'DCT_RCV_PRM' : ''">
+              <span class="icon is-small is-right">
+                <i class="fas fa-search"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control is-expanded">
+              <input class="input" type="text" placeholder=""
+                [value]="isValidated ? 'Dictionnaire de recouvrement promesse' : ''">
+            </p>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="container">
+    <fieldset>
+      <legend>Action</legend>
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <button class="button">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <p class="has-icons-left">Afficher</p>
+            </button>
+          </div>
+          <div class="field">
+            <button class="button" (click)="isValidated=true">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <p class="has-icons-left">Valider</p>
+            </button>
+          </div>
+          <div class="field">
+            <button class="button">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <p class="has-icons-left">Mise à blanc</p>
+            </button>
+          </div>
+          <div class="field">
+            <button class="button">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <p class="has-icons-left">Supprimer</p>
+            </button>
+          </div>
+          <div class="field">
+            <button class="button">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <p class="has-icons-left">Ajouter une note</p>
+            </button>
+          </div>
+          <div class="field">
+            <button class="button">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <p class="has-icons-left">Afficher les notes</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<div *ngIf="isValidated" class="container" style="margin-top: 20px">
+  <div class="tabs is-boxed" #tab>
+    <ul>
+      <li class="is-active"><a>
+          <span>Caractéristiques dictionnaire</span>
+          <button class="delete is-icon" aria-label="close" (click)="close()"></button>
+        </a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <fieldset>
+      <legend>Données du dictionnaire</legend>
+      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Libellé</th>
+            <th>Type</th>
+            <th>Active</th>
+            <th>Utilisée dans un écran</th>
+            <th>Aller vers la donnée</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <td>68</td>
+            <td>36</td>
+            <td>+32</td>
+            <td>
+              <label class="checkbox">
+                <input type="checkbox">
+              </label>
+            </td>
+            <td>23</td>
+          </tr>
+          <tr>
+            <th>1</th>
+            <td>68</td>
+            <td>36</td>
+            <td>+32</td>
+            <td>
+              <label class="checkbox">
+                <input type="checkbox">
+              </label>
+            </td>
+            <td>23</td>
+          </tr>
+        </tbody>
+      </table>
+      <nav class="pagination is-small is-centered" role="navigation" aria-label="pagination">
+        <a class="pagination-previous">Previous</a>
+        <a class="pagination-next">Next page</a>
+        <ul class="pagination-list">
+          <li>
+            <a class="pagination-link" aria-label="Goto page 1">1</a>
+          </li>
+          <li>
+            <span class="pagination-ellipsis">&hellip;</span>
+          </li>
+          <li>
+            <a class="pagination-link" aria-label="Goto page 45">45</a>
+          </li>
+          <li>
+            <a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a>
+          </li>
+          <li>
+            <a class="pagination-link" aria-label="Goto page 47">47</a>
+          </li>
+          <li>
+            <span class="pagination-ellipsis">&hellip;</span>
+          </li>
+          <li>
+            <a class="pagination-link" aria-label="Goto page 86">86</a>
+          </li>
+        </ul>
+      </nav>
+    </fieldset>
+  </div>
+</div>

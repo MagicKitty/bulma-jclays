@@ -1,0 +1,315 @@
+<div *ngIf="!isLocalStorageNotificationClosed()" class="notification is-info" #closeModal>
+  <button class="delete" (click)="close()"></button>
+  Connection successful, welcome {{ login }}
+</div>
+
+<app-intervenants
+  *ngIf="showIntervenants"
+  [showIntervenants]="showIntervenants"
+  (shownIntervenants)="showIntervenants=$event"
+>
+</app-intervenants>
+
+<app-gestion-documents
+  *ngIf="showGestionDocuments"
+  [showGestionDocuments]="showGestionDocuments"
+  (shownGestionDocuments)="showGestionDocuments=$event"
+>
+</app-gestion-documents>
+
+<app-gestion-notes
+  *ngIf="showGestionNotes"
+  [showGestionNotes]="showGestionNotes"
+  (shownGestionNotes)="showGestionNotes=$event"
+>
+</app-gestion-notes>
+
+<app-ajouter-projet
+  *ngIf="showAjouterProjet"
+  [showAjouterProjet]="showAjouterProjet"
+  (shownAjouterProjet)="showAjouterProjet=$event"
+>
+</app-ajouter-projet>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="../assets/jclays.png" alt="JClays image">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          Projet
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" (click)="showAjouterProjet ? '' : displayAjouterProjet()">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            Ajouter projet
+          </a>
+          <a class="navbar-item">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            Gestion projet
+          </a>
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          Intervenants
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" (click)="showIntervenants ? '' : displayIntervenants()">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            Ajouter un intervenant
+          </a>
+          <a class="navbar-item">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            Supprimer un intervenant
+          </a>
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          Gestion des documents
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" (click)="showGestionDocuments ? '' : displayGestionDocuments()">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            Télécharger un document
+          </a>
+          <a class="navbar-item">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            Liste des documents
+          </a>
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          Gestion des notes
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" (click)="showGestionNotes ? '' : displayGestionNotes()">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            Ajouter une note
+          </a>
+          <a class="navbar-item">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            Liste des notes
+          </a>
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          Messagerie
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            Envoyer un mail
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          Nicolas Blin
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            PRJ_TIERS_RIB_ADRESSE
+          </a>
+
+          <a class="navbar-item" routerLink="/login">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            Sign out
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="columns">
+
+    <div class="column is-2-desktop">
+      <aside class="menu is-vertical-menu">
+        <p class="menu-label">
+          Menu
+        </p>
+          <ul class="menu-list">
+            <li><a>Projet</a></li>
+            <li>
+              <a>
+                <div class="dropdown is-hoverable">
+                  <div class="dropdown-trigger full-width">
+                    <span>Clays Concept</span>
+                    <span class="icon is-small is-icon">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                    <div class="dropdown-content">
+                      <a class="dropdown-item" (click)="addTab()">
+                        Paramétrage dictionnaire
+                      </a>
+                      <a class="dropdown-item">
+                        Paramétrage données
+                      </a>
+                      <a class="dropdown-item">
+                        Paramétrage groupe de données
+                      </a>
+                      <a class="dropdown-item">
+                        Paramétrage écran
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+
+            <li><a>Clays Dev</a></li>
+            <li><a>Clays Admin</a></li>
+            <li><a>Clays Testing</a></li>
+            <li><a>Clays Traduction</a></li>
+            <li><a>Clays Ref</a></li>
+            <li><a>Clays Tag</a></li>
+            <li><a>Recherche avancée</a></li>
+            <li><a>
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>Recherche dans le référentiel</a></li>
+          </ul>
+      </aside>
+    </div>
+
+
+
+    <div class="column">
+      <app-middle-core *ngIf="showTabs"
+      [showTabs]="showTabs"
+      (shownTabs)="showTabs=$event"></app-middle-core>
+    </div>
+
+
+
+    <div class="column is-2-desktop">
+      <aside class="menu is-vertical-menu">
+        <p class="menu-label">
+          Business Context
+        </p>
+        <div id="collapsible-card" class="is-collapsible">
+          <ul class="menu-list">
+            <li><a>
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>Actions rapides</a></li>
+            <li><a (click)="showAjouterProjet ? '' : displayAjouterProjet()">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              Ajouter projet
+            </a></li>
+            <li>
+              <a style="padding-right: 0">
+                <div class="field">
+                  <div class="dropdown is-hoverable" style="width: 100%">
+                    <div class="dropdown-trigger full-width">
+                      <span>Nom projet</span>
+                      <span class="icon is-small is-icon">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                    <p class="control is-expanded">
+                    <input class="input" type="text" placeholder="Langue">
+                    </p>
+                </div>
+                <div class="field">
+                    <p class="control is-expanded">
+                    <input class="input" type="text" placeholder="Libellé projet">
+                    </p>
+                </div>
+                <div class="field">
+                  <p class="control is-expanded">
+                  <input class="input" type="text" placeholder="Utilisateur">
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control is-expanded">
+                  <input class="input" type="text" placeholder="Date création">
+                  </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      </aside>
+    </div>
+    </div>
+</section>
